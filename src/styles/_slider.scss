@@ -1,0 +1,14 @@
+$buttonBg:yellow;
+
+.swiper-container{
+	.swiper-wrapper{
+		.swiper-slide{
+		 background: url(../images/true2.jpg) no-repeat top left;
+		  background-size: 100%;
+			button{
+				background:$buttonBg;
+				clear:both;
+			}
+		}
+	}
+}
