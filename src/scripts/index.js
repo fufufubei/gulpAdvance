@@ -52,13 +52,26 @@ $('#enter').tap(function(){
 	// })
 	$('#footer .button').tap(function(){
 		var apiTarget=$(this).attr("id");
-		$.post("/api/"+apiTarget,function(response){
-			
+		$.post("/api/"+apiTarget,function(response){			
 			var html="";
+			console.log(apiTarget)
 			for(var i=0;i<response.length;i++){
-				html+='<li>'+response[i].category+'</li>';
+				if(apiTarget=='skill'){
+					html+='<li><span>技能</span>：'+response[i].category+'<br><span>内容</span>：'+response[i].name+'<br><span>运用时间</span>：'+response[i].time+'<br><span>掌握程度</span>：'+response[i].level+'</li>';
+				}else if(apiTarget=='work'){
+					html+='<li>公司类型：'+response[i].category+'<br>公司全称：'+response[i].name+'<br>在职时间：'+response[i].time+'<br>职位：'+response[i].posts+'/'+response[i].reportto+'<br>公司规模：'+response[i].peoples+'<br>项目：'+response[i].projects+'</li>';
+				}else if(apiTarget=='product'){
+					html+='<li>公司类型： '+response[i].title+'<br><div class="pic1"><img src="'+response[i].img+'"></div><br>在职时间：'+response[i].no+'<br>职位：'+response[i].price+'</li>';
+				}else if(apiTarget=='project'){
+					html+='<li><p class="company">'+response[i].name+'<span>'+response[i].category+'<span></p><div class="pic1"><img src="'+response[i].image+'"></div><p>项目简介: '+response[i].description+'<br>'+response[i].detail+'</p><p>运用的技术: '+response[i].tech+'</p></li>';
+				}else if(apiTarget=='interest'){
+					
+					html+='<li><i class="img"><img src="'+response[i].image+'"></i><p>'+response[i].category+'</p></li>'
+
+				}
+				//html+='<li>'+'<dl>'+'<dt>'+response[i].category+'</dt>'+'<dd>'+response[i].name+'</dd>'+'</dl>'+'</li>';
 			};
-				$('#scroller').html(html);
+			$('#scroller').html(html);
 			//调用iscroll
 			myScroll = new IScroll('#wrapper', { mouseWheel: true });	
 			document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);

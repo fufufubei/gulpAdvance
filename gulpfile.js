@@ -36,9 +36,6 @@ gulp.task('webserver', function() {
       livereload: true,
       directoryListing: true,
       open: true,
-
-
-
       	//实现我们的Mock数据
       	//1、用户在浏览器输入url地址，如http://localhost/queryList
       	//2、系统通过判断，获取到url的地址参数，即queryList
@@ -67,6 +64,18 @@ gulp.task('webserver', function() {
 		    			res.end(data);
 		    		})
 	    			return;
+	    		case '/api/product':
+		    		res.setHeader('Content-Type','application/json');
+		    		fs.readFile('mock/product.json','utf-8',function(err,data){
+		    			res.end(data);
+		    		})
+	    			return;
+	    		case '/api/interest':
+		    		res.setHeader('Content-Type','application/json');
+		    		fs.readFile('mock/interest.json','utf-8',function(err,data){
+		    			res.end(data);
+		    		})
+	    			return;
 	    		case '/api/work':
 		    		res.setHeader('Content-Type','application/json');
 		    		fs.readFile('mock/work.json','utf-8',function(err,data){
@@ -87,7 +96,9 @@ gulp.task('copy-index',function(){
 	return gulp.src('./src/index.html').pipe(gulp.dest('./www'));
 })
 gulp.task('sass',function(){
-	return gulp.src('./src/styles/**/*.scss').pipe(sass()).pipe(gulp.dest('www/css'));
+	return gulp.src('./src/styles/**/*.scss')
+	.pipe(sass().on('error',sass.logError))
+	.pipe(sass()).pipe(gulp.dest('www/css'));
 })
 
 //js模块化管理
@@ -151,13 +162,11 @@ gulp.task('watch',function(){
 	gulp.watch('./src/images/**',['images']);
 	gulp.watch('./src/index.html',['copy-index']);
 
-	var queue=sequence(300);
-	
+	var queue=sequence(300);	
 	watch('src/scripts/**/*.js',{
 		name:'JS',
 		emitOnGlob:false,
 	},queue.getHandler('packjs','verJs','html'));
-
 
 	watch('src/styles/**/*.*',{
 		name:'CSS',
