@@ -92,8 +92,8 @@ $('#back').tap(function(){
 var Swiper=require('./components/swiper/swiper.min.js');
 var SwiperAnimate=require('./components/swiper/swiper.animate1.0.2.min.js');
 var mySwiper=new Swiper('.swiper-container',{
-		//effect:'flip',//翻转
-		effect:'cube',//方块立体
+		effect:'flip',//翻转
+		//effect:'cube',//方块立体
 	  onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
 	    SwiperAnimate.swiperAnimateCache(swiper); //隐藏动画元素 
 	    SwiperAnimate.swiperAnimate(swiper); //初始化完成开始动画

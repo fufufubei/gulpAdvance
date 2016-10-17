@@ -1,20 +1,21 @@
-$buttonBg:#90eaf3;
+$buttonBg:#b2e6e1;
 $borderRadiu:50%;
 .swiper-container{
 	.swiper-wrapper{
 		.swiper-slide{
-			background: url(../images/true2.jpg) no-repeat top left;
+			background: url(../images/true6.jpg) no-repeat top left;
 			background-size: 100%;
 			button{
 				background:$buttonBg;
 				display:block;
 				clear:both;
-				width:100px;
-				height:100px;
+				width:150px;
+				height:150px;
+				font-size:22px;
+				
 				border-radius:$borderRadiu;
 				border:none;
 				margin:100px auto;
-
 			}
 		}
 	}

@@ -53,14 +53,14 @@
     .personal div{
         margin:20px 40px;
     }
-     #person-header{
+    #person-header{
         width:150px;
         height:150px;
-        border-radius: 50%;
-        border: 1px solid blue;                              
-        margin:40px auto;
+        border-radius: 50%;                                  
+        margin:20px auto;
         padding:10px;
         overflow:hidden; 
+        background:url(../images/head.jpg) no-repeat center;
     }
     
    

@@ -17,7 +17,7 @@ ul,li{
 	list-style: none;
 }
 body {
-	font-size: 12px;
+	font-size: 14px;
 	font-family: ubuntu, helvetica, arial;
 	overflow: hidden; /* this is important to prevent the whole page to bounce */
 }
@@ -125,7 +125,7 @@ body {
 	border-bottom: 1px solid #ccc;
 	border-top: 1px solid #fff;
 	background-color: #fafafa;
-	font-size: 14px;	
+	font-size: 16px;	
 	background:rgba(245,245,245,.5);
 	/*background:rgba(0,0,0,.1);*/
 }
