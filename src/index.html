@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	
+	<meta charset="UTF-8">	
 	<meta name="viewport" content="initial-scale=1"/>
 	<title>D</title>
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	
-	<!-- <h1>坎坎坷坷顶顶顶顶1</h1>
-	<div id="list"></div> -->
-
 	<div class="swiper-container">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
@@ -21,9 +16,7 @@
             </div>
             <div class="swiper-slide">
             	<div class="personal-information personal">
-            		<div id="person-header">
-		            	<!-- <img src="images/true.jpg" alt="">	 -->	            	
-            		</div>
+            		<div id="person-header"></div>
 	            	<div id="name">姓名：付贝贝</div>
 	            	<div id="age">出生日期：1993年3月18日</div>
 	            	<div id="address">现住地：河南.郑州</div>
@@ -33,35 +26,31 @@
 				<div class="personal-information">					           			
 					<button id="enter">了解更多</button>
 				</div>
-            </div>
-                          
+            </div>                         
         </div>
     </div>
     <div id='mainContent'>
     	<div id="header">
 			<i id="back" class='header-1'><img src="images/back.png" alt=""></i>
 			<p class='header-1'>个人简历</p>
-			<p class='header-1'></p>
-
+			<div class='header-1 header-2'>分享到
+				<div id="set">
+					<p id='share'>分享到</p>
+					<p id='scan'>扫一扫</p>
+				</div>
+			</div>
     	</div>
 		<div id="wrapper">
 			<div id="scroller">
-				<ul>
-									
+				<ul>									
 				</ul>
 			</div>
 		</div>
-
-		<div id="footer">
-			<div class="button" id='interest'>
-				 <i class="icon iconfont">&#xe67a;</i>
-				<div>技能</div>
-			</div>
+		<div id="footer">			
 			<div class="button" id='project'>
 				<i class="icon iconfont">&#xe645;</i>
 				<div>项目</div>
-			</div>
-			
+			</div>			
 			<div class="button" id='skill'>
 				<i class="icon iconfont">&#xe608;</i>
 				<div>技能</div>
@@ -77,5 +66,6 @@
 		</div>
     </div>
 	<script src='js/index.js'></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 </body>
 </html>

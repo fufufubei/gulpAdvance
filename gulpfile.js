@@ -28,7 +28,7 @@ var watch=require('gulp-watch');
 //队列模块
 var sequence=require('gulp-watch-sequence');
 //压缩html
-var minifuHTML=require('gulp-minify-html');
+var minifyHTML=require('gulp-minify-html');
 
 gulp.task('webserver', function() {
   gulp.src('www')
@@ -45,9 +45,7 @@ gulp.task('webserver', function() {
 
 	    	var urlObj=url.parse(req.url,true),
 	    	method=req.method;
-
 	    	//console.log(urlObj);
-
 	    	switch(urlObj.pathname){
 	    		case '/api/skill':
 		    		//设置的头信息
@@ -56,31 +54,31 @@ gulp.task('webserver', function() {
 		    		fs.readFile('mock/skill.json','utf-8',function(err,data){
 		    			//res的全称是response，end是结束的意思，就是把我们的data数据渲染到浏览器上
 		    			res.end(data);
-		    		})
+		    		});
 	    			return;
 	    		case '/api/project':
 		    		res.setHeader('Content-Type','application/json');
 		    		fs.readFile('mock/project.json','utf-8',function(err,data){
 		    			res.end(data);
-		    		})
+		    		});
 	    			return;
 	    		case '/api/product':
 		    		res.setHeader('Content-Type','application/json');
 		    		fs.readFile('mock/product.json','utf-8',function(err,data){
 		    			res.end(data);
-		    		})
+		    		});
 	    			return;
 	    		case '/api/interest':
 		    		res.setHeader('Content-Type','application/json');
 		    		fs.readFile('mock/interest.json','utf-8',function(err,data){
 		    			res.end(data);
-		    		})
+		    		});
 	    			return;
 	    		case '/api/work':
 		    		res.setHeader('Content-Type','application/json');
 		    		fs.readFile('mock/work.json','utf-8',function(err,data){
 		    			res.end(data);
-		    		})
+		    		});
 		    		return;
 		    	
 		    	default:;
@@ -92,13 +90,21 @@ gulp.task('webserver', function() {
 });
 
 
+
 gulp.task('copy-index',function(){
-	return gulp.src('./src/index.html').pipe(gulp.dest('./www'));
+	return gulp.src('./src/index.html')
+	.pipe(gulp.dest('./www'));
+});
+gulp.task('images',function(){
+	return gulp.src('./src/images/**')
+	.pipe(gulp.dest('www/images'));
 })
+
 gulp.task('sass',function(){
 	return gulp.src('./src/styles/**/*.scss')
 	.pipe(sass().on('error',sass.logError))
-	.pipe(sass()).pipe(gulp.dest('www/css'));
+	// .pipe(sass())
+	.pipe(gulp.dest('www/css'));
 })
 
 //js模块化管理
@@ -116,8 +122,6 @@ gulp.task('packjs',function(){
 //版本控制
 var cssDistFiles=['www/css/style.css'];
 var jsDistFiles=['www/js/index.js'];
-
-
 
 //css的ver控制
 gulp.task('verCss',function(){
@@ -144,18 +148,14 @@ gulp.task('verJs',function(){
 	.pipe(gulp.dest('www/ver/js'));
 })
 
-
-gulp.task('images',function(){
-	return gulp.src('./src/images/**').pipe(gulp.dest('www/images'));
-})
-
-
 //对html文件的版本内容的替换
 gulp.task('html',function(){
 	return gulp.src(['www/ver/**/*.json','www/*.html'])
 	.pipe(revCollector({replaceReved:true}))
 	.pipe(gulp.dest('www/'))
 })
+
+
 
 //设置监控
 gulp.task('watch',function(){
