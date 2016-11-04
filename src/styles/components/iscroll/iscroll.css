@@ -39,15 +39,16 @@ body {
 	padding: 0;
 	color: #eee;
 	font-size: 20px;
-	display: flex;
 	font-weight: bold;
 
+}
+#headerX{
+	display: flex;	
 }
 #back{
 	padding:10px;
 }
 .header-1{
-	display:block;
 	flex:1;
 	margin:0;
 }
@@ -58,8 +59,7 @@ body {
 #set{
 	width:100px;
 	color:#333;
-	/*display:none;*/
-	
+	display:none;	
 }
 .header-2 #set p{
 	background:#666;
@@ -80,11 +80,15 @@ body {
 	background:#444;
 	padding: 0;
 	border-top: 1px solid #444;
-	display:flex;
+	
+	
+}
+#footerX{
+	display: flex;
 	justify-content:center;
 	align-items:center;
 }
-#footer .button{
+#footerX .button{
 	flex:1;
 	text-align:center;
 	color:#FFF;
@@ -99,7 +103,6 @@ body {
 	bottom: 48px;
 	left: 0;
 	width: 100%;
-	/*background: #ccc;*/
 	overflow: hidden;
 }
 
@@ -134,24 +137,25 @@ body {
 	text-align: left;
 }
 
-#scroller li {
+#scroller li{
 	padding: 0 15px;
-	/*height:40px;*/
 	line-height: 30px;
 	margin-bottom:15px;
 	border-bottom: 1px solid #ccc;
 	border-top: 1px solid #fff;
-	background-color: #fafafa;
 	font-size: 16px;	
 	background:rgba(245,245,245,.5);
-	/*background:rgba(0,0,0,.1);*/
 }
 #scroller li span{
 	font-size: 16px;
-	display:inline-block;
-	
+	display:inline-block;	
 }
-
+#scroller .interesting{
+	display: flex;
+}
+.img,.interesting p{
+	flex:1;
+}
 .company{
 	text-align:center;
 	font-size:20px;
@@ -159,7 +163,6 @@ body {
 	background:rgba(247,247,167,0.5);
 	height:35px;
 	line-height:35px;
-
 }
 .company span{
 	font-size:16px;
@@ -178,14 +181,9 @@ body {
 dl{
 	display:flex;
 }
-.img{
-	display:block;
+
+#scroller .interesting img{
 	width:100px;
 	height:100px;
-	border-radius: 50%;
-	overflow:hidden;
-}
-#scroller li .img img{
-	width:100px;
-	
+	border-radius: 50%;	
 }

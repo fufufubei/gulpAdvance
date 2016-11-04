@@ -28,7 +28,7 @@ console.log(dateUtil.getDate())
 */
 
 //引入zepto
-var $ = require('./components/zepto-modules/_custom');//!!!!!!!!!!
+var $ = require('./components/zepto-modules/_custom');
 //引入iscroll
 var IScroll=require('./components/iscroll/iscroll.js');	
 //引入微信
@@ -41,8 +41,8 @@ $('.swiper-container').show();
 $('#enter').tap(function(){
 	$('#mainContent').show();
 	$('.swiper-container').hide();	
-	//$.post("/api/skill",{},function(response){
-	$.post("http://1326097562.applinzi.com/www/mock/skill.json",function(response){
+	$.post("/api/skill",{},function(response){
+	//$.post("http://1326097562.applinzi.com/www/mock/skill.json",function(response){
 		console.log(response)
 		var html="";
 		for(var i=0;i<response.length;i++){
@@ -55,10 +55,10 @@ $('#enter').tap(function(){
 	})
 });
 
-$('#footer .button').tap(function(){
+$('#footerX .button').tap(function(){
 	var apiTarget=$(this).attr("id");
-	//$.post("/api/"+apiTarget,function(response){
-	$.post("http://1326097562.applinzi.com/www/mock/"+apiTarget+".json",function(response){			
+	$.post("/api/"+apiTarget,function(response){
+	//$.post("http://1326097562.applinzi.com/www/mock/"+apiTarget+".json",function(response){			
 		var html="";
 		for(var i=0;i<response.length;i++){
 			if(apiTarget=='skill'){
@@ -68,7 +68,7 @@ $('#footer .button').tap(function(){
 			}else if(apiTarget=='project'){
 				html+='<li><p class="company">'+response[i].name+'<span>'+response[i].category+'<span></p><div class="pic1"><img src="'+response[i].image+'"></div><p>项目简介: '+response[i].description+'<br>'+response[i].detail+'</p><p>运用的技术: '+response[i].tech+'</p></li>';
 			}else if(apiTarget=='interest'){					
-				html+='<li><i class="img"><img src="'+response[i].image+'"></i><p>'+response[i].category+'</p></li>'
+				html+='<li class="interesting"><i class="img"><img src="'+response[i].image+'"></i><p>'+response[i].category+'</p></li>'
 			}
 		};
 		$('#scroller').html(html);
@@ -86,6 +86,10 @@ $('#back').tap(function(){
 })
 
 
+
+$('.unfold').tap(function(){
+	$('#set').toggle();
+})
 //引入swiper
 var Swiper=require('./components/swiper/swiper.min.js');
 var SwiperAnimate=require('./components/swiper/swiper.animate1.0.2.min.js');
@@ -101,7 +105,7 @@ var mySwiper=new Swiper('.swiper-container',{
 	  }     
 });
 
-//扫一扫
+/*//扫一扫
 $.post("http://1326097562.applinzi.com/php/getsign.php",{               
     url:window.location.href
     },function(data){
@@ -135,3 +139,4 @@ $.post("http://1326097562.applinzi.com/php/getsign.php",{
         });             
     }
 );
+*/

@@ -1,18 +1,19 @@
 
 [
 	{
-		"category":"漫画",
-		
-		
-		"image":"images/true.jpg"
-		
-	},
-	{
 		"category":"听音乐",
 		
 		"image":"images/mu.jpg"
 		
 	},
+	{
+		"category":"看漫画",
+		
+		
+		"image":"images/true.jpg"
+		
+	},
+	
 	{
 		"category":"看书",
 		
